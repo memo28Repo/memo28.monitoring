@@ -147,6 +147,9 @@ importers:
       '@memo28.monitoring/service':
         specifier: ^0.0.2
         version: link:../service
+      dayjs:
+        specifier: ^1.11.10
+        version: 1.11.10
 
   packages/service:
     dependencies:

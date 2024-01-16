@@ -2,6 +2,9 @@
  * 表示用户信息和设备信息的抽象类。
  */
 export declare abstract class UserDeviceInfoImpl {
+    abstract createTime: string;
+    abstract getCreateTime(): string;
+    abstract setCreateTime(time: string): this;
     /** 用户代理字符串，表示浏览器和操作系统信息。
      * @public
      */

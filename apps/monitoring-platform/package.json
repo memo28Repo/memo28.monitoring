@@ -1,7 +1,7 @@
 {
   "name": "monitoring-platform",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "build:watch:app": "vite",
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
-    "@memo28.monitoring/service": "^0.0.2",
+    "@memo28.monitoring/service": "^0.0.3",
     "@memo28/service": "^4.1.2",
     "@memo28/vitebuild": "^3.0.10",
     "@types/react-syntax-highlighter": "^15.5.11",
