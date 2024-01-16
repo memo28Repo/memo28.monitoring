@@ -23,6 +23,9 @@
         "lib"
       ]
     },
+    "build:app": {
+      "cache": false
+    },
     "lint": {
       "outputs": []
     },
@@ -42,6 +45,9 @@
       "cache": false
     },
     "build:watch": {
+      "cache": false
+    },
+    "build:watch:app": {
       "cache": false
     }
   }
