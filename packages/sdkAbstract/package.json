@@ -7,9 +7,9 @@
   "types": "./dts/index.d.ts",
   "scripts": {
     "test": "vitest run",
-    "build:cjs": "tsc --module commonjs --rootDir ./src --outDir ./lib --experimentalDecorators true",
+    "build:cjs": "tsc --module NodeNext --moduleResolution NodeNext  --rootDir ./src --outDir ./lib --experimentalDecorators true",
     "build:es": "tsc --module es6 --rootDir ./src --outDir ./dist --experimentalDecorators true",
-    "build:cjs:watch": "tsc --module commonjs --rootDir ./src --outDir ./lib --experimentalDecorators true --watch",
+    "build:cjs:watch": "tsc --module NodeNext --rootDir ./src --outDir ./lib --experimentalDecorators true --watch",
     "build:es:watch": "tsc --module es6 --rootDir ./src --outDir ./dist --experimentalDecorators true --watch",
     "build": "pnpm build:cjs && pnpm build:es",
     "build:watch": "pnpm build:es:watch && pnpm build:cjs:watch",
