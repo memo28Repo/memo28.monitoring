@@ -1,10 +1,27 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local", "tsconfig.json"],
+  "globalDependencies": [
+    "**/.env.*local",
+    "tsconfig.json"
+  ],
   "pipeline": {
+    "frontend#build": {
+      "dependsOn": [
+        "@memo28.monitoring/service#build",
+        "@memo28.monitoring/sdk-browser#build",
+        "@memo28.monitoring/sdk-abstract#build"
+      ]
+    },
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "dts", "lib"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**",
+        "dts",
+        "lib"
+      ]
     },
     "lint": {
       "outputs": []
