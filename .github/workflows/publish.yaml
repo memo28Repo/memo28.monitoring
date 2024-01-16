@@ -32,5 +32,9 @@ jobs:
       - name: build
         run: pnpm build
 
+      - name: links
+        run: pnpm links
+
+
       - name: publish
         run: pnpm changeset publish
