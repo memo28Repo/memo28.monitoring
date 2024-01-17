@@ -11,6 +11,8 @@ lerna-debug.log*
 /packages/service
 /packages/sdkUniapp
 
+/apps/monitoring-platform
+
 /dts
 
 /lib
