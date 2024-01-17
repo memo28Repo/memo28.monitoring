@@ -1,5 +1,6 @@
 import {useState} from "react";
-import {errorLogDetails, getErrorLogList} from "@memo28.monitoring/service";
+import {getErrorLogList} from "@memo28.monitoring/service";
+import type {errorLogDetails} from "@memo28.monitoring/service";
 
 export function useErrorLogList() {
 
@@ -22,7 +23,7 @@ export function useErrorLogList() {
         }).then(res => {
             setListTotal(res.data.total || 0)
             setDetailsList(res.data.list || [])
-        }).finally(()=>{
+        }).finally(() => {
             setLoading(false)
         })
 

@@ -1,6 +1,7 @@
 import {useParams} from "react-router-dom";
 import {Typography, Divider, Form, Tag} from 'antd'
-import {getErrorLog, errorLogDetails} from '@memo28.monitoring/service'
+import {getErrorLog} from '@memo28.monitoring/service'
+import type {errorLogDetails} from '@memo28.monitoring/service'
 import {useEffect, useState} from "react";
 import {getErrorLogIcon} from "~/features/errorLog/icons.ts";
 import dayjs from 'dayjs'
