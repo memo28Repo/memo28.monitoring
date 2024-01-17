@@ -61,6 +61,20 @@ const ErrorDetails = () => {
         <Form.Item label={'用户信息'}>
             {details.userAgent || 'unknown'}
         </Form.Item>
+
+        <Divider orientation="left">网络信息</Divider>
+        <Form.Item label={'下行带宽(downLink)'}>
+            {details.downLink || 'unknown'}(Mbit/s)
+        </Form.Item>
+        <Form.Item label={'往返时延(rtt)'} extra={<>表示设备与服务器之间的往返时延，以毫秒为单位</>}>
+            {details.downLink || 'unknown'}(ms)
+        </Form.Item>
+        <Form.Item label={'数据节省模式(saveData)'} extra={<>表示用户代理是否启用了数据节省模式，以毫秒为单位</>}>
+            {details.saveData || 'unknown'}(ms)
+        </Form.Item>
+        <Form.Item label={'网络类型(effectiveType)'} extra={<>表示用户代理是否启用了数据节省模式，以毫秒为单位</>}>
+            {details.effectiveType || 'unknown'}(ms)
+        </Form.Item>
     </>
 }
 

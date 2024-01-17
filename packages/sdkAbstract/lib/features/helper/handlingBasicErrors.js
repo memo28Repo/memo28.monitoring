@@ -11,8 +11,22 @@ const userDeviceInfo_1 = require("./userDeviceInfo");
  *
  */
 class HandlingBasicErrors extends userDeviceInfo_1.UserDeviceInfo {
-    constructor() {
-        super(...arguments);
+    getDownLink() {
+        return this.downLink;
+    }
+    setDownLink(value) {
+        this.downLink = value;
+        return this;
+    }
+    getRtt() {
+        return this.rtt;
+    }
+    setRtt(value) {
+        this.rtt = value;
+        return this;
+    }
+    constructor(config) {
+        super(config);
         this.expandTheInformation = {};
         this.message = '';
         this.stack = '';
@@ -20,6 +34,10 @@ class HandlingBasicErrors extends userDeviceInfo_1.UserDeviceInfo {
         this.colno = 0;
         this.lineno = 0;
         this.type = '';
+        this.downLink = '';
+        this.rtt = '';
+        this.saveData = false;
+        this.effectiveType = '';
     }
     getExpandTheInformation() {
         return this.expandTheInformation;
@@ -57,10 +75,10 @@ class HandlingBasicErrors extends userDeviceInfo_1.UserDeviceInfo {
         return this;
     }
     getColno() {
-        return 0;
+        return this.colno;
     }
     getLineno() {
-        return 0;
+        return this.lineno;
     }
     setColno(colno) {
         this.colno = colno;
@@ -68,6 +86,20 @@ class HandlingBasicErrors extends userDeviceInfo_1.UserDeviceInfo {
     }
     setLineno(lineno) {
         this.lineno = lineno;
+        return this;
+    }
+    getEffectiveType() {
+        return this.effectiveType;
+    }
+    getSaveData() {
+        return this.saveData;
+    }
+    setEffectiveType(value) {
+        this.effectiveType = value;
+        return this;
+    }
+    setSaveData(value) {
+        this.saveData = value;
         return this;
     }
 }

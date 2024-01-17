@@ -1,4 +1,5 @@
 import {UserDeviceInfoImpl} from "../../index";
+import {MonitoringConfigImpl} from "../../index";
 
 export class UserDeviceInfo implements UserDeviceInfoImpl {
 
@@ -28,16 +29,27 @@ export class UserDeviceInfo implements UserDeviceInfoImpl {
     }
 
 
-    constructor() {
+    private config?: MonitoringConfigImpl
+
+    constructor(config?: MonitoringConfigImpl) {
+        this.config = config
+        // 不获取用户所有信息
+        if (!this.config?.getCaptureUserDetails()) return
+
         if (typeof window !== 'undefined') {
             this.setBrowserLanguage(window.navigator.language);
+
+            this.setUserAgent(window.navigator.userAgent);
+
+
+            if (!this.config?.getCaptureDeviceDetails()) return
             this.setIsMobile(window.navigator.userAgent.indexOf('Mobile') > -1);
             this.setIsTouchDevice(window.navigator.maxTouchPoints > 0);
-            // @ts-ignore
-            this.setDeviceOrientation(window.orientation || window.screen.orientation && window.screen.orientation.type || window.mozOrientation || window.msOrientation);
             this.setScreenWidth(window.screen.width);
             this.setScreenHeight(window.screen.height);
-            this.setUserAgent(window.navigator.userAgent);
+            // @ts-ignore
+            this.setDeviceOrientation(window.orientation || window.screen.orientation && window.screen.orientation.type || window.mozOrientation || window.msOrientation);
+
         }
     }
 

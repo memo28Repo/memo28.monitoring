@@ -1,5 +1,17 @@
 # @memo28.monitoring/sdk-abstract
 
+## 0.0.5
+
+### Patch Changes
+
+- 新增网络抽象类且完善一些配置项目详情见文档
+
+## 0.0.4
+
+### Patch Changes
+
+- 新增获取网络状态获取并且携带
+
 ## 0.0.3
 
 ### Patch Changes

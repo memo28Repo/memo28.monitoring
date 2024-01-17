@@ -14,3 +14,5 @@ export {MonitoringConfigImpl} from './features/monitoringConfig/monitoringConfig
 export {HandlingBasicErrors} from './features/helper/handlingBasicErrors'
 
 export {UserDeviceInfo} from './features/helper/userDeviceInfo'
+
+export {NetworkContextImpl} from './features/contextInformation/networkContext'

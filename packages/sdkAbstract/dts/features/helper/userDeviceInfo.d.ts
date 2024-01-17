@@ -1,4 +1,5 @@
 import { UserDeviceInfoImpl } from "../../index";
+import { MonitoringConfigImpl } from "../../index";
 export declare class UserDeviceInfo implements UserDeviceInfoImpl {
     createTime: string;
     browserLanguage?: string | undefined;
@@ -10,7 +11,8 @@ export declare class UserDeviceInfo implements UserDeviceInfoImpl {
     screenHeight?: number | undefined;
     getCreateTime(): string;
     setCreateTime(time: string): this;
-    constructor();
+    private config?;
+    constructor(config?: MonitoringConfigImpl);
     getBrowserLanguage(): string;
     getDeviceOrientation(): string;
     getIsMobile(): boolean;

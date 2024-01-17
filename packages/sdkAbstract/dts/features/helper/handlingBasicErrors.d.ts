@@ -1,5 +1,6 @@
 import { UserDeviceInfo } from "./userDeviceInfo";
-import { ErrorMessageImpl, ErrorStackImpl, TriggerLevelImpl, TriggerLevelImplWithKindType, UserDeviceInfoImpl, TriggerLevelImplType, UserDiyContextImpl, expandTheInformationObjectType } from "../../index";
+import { ErrorMessageImpl, ErrorStackImpl, TriggerLevelImpl, TriggerLevelImplWithKindType, UserDeviceInfoImpl, TriggerLevelImplType, UserDiyContextImpl, expandTheInformationObjectType, NetworkContextImpl } from "../../index";
+import { MonitoringConfigImpl } from "../../index";
 /**
  *
  *
@@ -8,7 +9,7 @@ import { ErrorMessageImpl, ErrorStackImpl, TriggerLevelImpl, TriggerLevelImplWit
  * @public
  *
  */
-export declare class HandlingBasicErrors extends UserDeviceInfo implements ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl, UserDiyContextImpl {
+export declare class HandlingBasicErrors extends UserDeviceInfo implements ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl, UserDiyContextImpl, NetworkContextImpl {
     expandTheInformation: expandTheInformationObjectType;
     message: string;
     stack: string;
@@ -16,6 +17,15 @@ export declare class HandlingBasicErrors extends UserDeviceInfo implements Error
     colno: number;
     lineno: number;
     type: TriggerLevelImplType;
+    downLink: string;
+    rtt: string;
+    saveData: boolean;
+    effectiveType: string;
+    getDownLink(): string;
+    setDownLink(value: string): this;
+    getRtt(): string;
+    setRtt(value: string): this;
+    constructor(config?: MonitoringConfigImpl);
     getExpandTheInformation(): expandTheInformationObjectType;
     setExpandTheInformation(value: expandTheInformationObjectType): this;
     getType(): TriggerLevelImplType;
@@ -30,4 +40,8 @@ export declare class HandlingBasicErrors extends UserDeviceInfo implements Error
     getLineno(): number;
     setColno(colno: number): this;
     setLineno(lineno: number): this;
+    getEffectiveType(): string;
+    getSaveData(): boolean;
+    setEffectiveType(value: string): this;
+    setSaveData(value: boolean): this;
 }

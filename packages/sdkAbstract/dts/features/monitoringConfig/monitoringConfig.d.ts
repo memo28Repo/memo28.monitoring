@@ -1,3 +1,4 @@
+import { TriggerLevelImplType } from "../errorInformation/triggerLevel";
 /**
  * 表示前端监控配置的接口。
  *
@@ -28,31 +29,70 @@ export declare abstract class MonitoringConfigImpl {
     abstract reportingEndpoint: string;
     abstract getReportingEndpoint(): string;
     abstract setReportingEndpoint(value: string): this;
-    /** 报告数据的时间间隔。 @public */
+    /**
+     * 报告数据的时间间隔(ms)。 可用
+     *
+     * @defaultValue 1000
+     *
+     *  @public
+     *  */
     abstract reportingInterval: number;
     abstract getReportingInterval(): number;
     abstract setReportingInterval(value: number): this;
-    /** 报告失败时的最大重试次数。 @public */
+    /**
+     *
+     * 报告失败时的最大重试次数。(可用)
+     *
+     * @defaultValue 3
+     *
+     * @public
+     * */
     abstract maxRetries: number;
     abstract getMaxRetries(): number;
     abstract setMaxRetries(value: number): this;
-    /** 是否捕获用户相关信息，如用户 ID、用户名等。 @public */
+    /**
+     *
+     * 是否捕获用户相关信息，如用户 ID、用户名等(可用)。
+     *
+     * @public
+     * */
     abstract captureUserDetails: boolean;
     abstract getCaptureUserDetails(): boolean;
     abstract setCaptureUserDetails(value: boolean): this;
-    /** 是否捕获设备信息，如屏幕分辨率、浏览器版本等。 @public */
+    /**
+     *
+     * 是否捕获设备信息，如屏幕分辨率、浏览器版本等。(可用)
+     *
+     *
+     * @public
+     * */
     abstract captureDeviceDetails: boolean;
     abstract getCaptureDeviceDetails(): boolean;
     abstract setCaptureDeviceDetails(value: boolean): this;
-    /** 是否捕获网络请求信息，包括请求时间、状态码等。 @public */
+    /**
+     *  是否捕获网络请求信息，包括请求时间、状态码等。(可用)
+     *
+     *  @defaultValue true
+     *
+     *  @public */
     abstract captureNetworkRequests: boolean;
     abstract getCaptureNetworkRequests(): boolean;
     abstract setCaptureNetworkRequests(value: boolean): this;
-    /** 自定义错误类型，允许开发者定义特定的错误类型进行监控。 @public */
-    abstract customErrorTypes: string[];
-    abstract getCustomErrorTypes(): string[];
-    abstract setCustomErrorTypes(value: string[]): this;
-    /** 是否捕获跨域请求的错误。 @public */
+    /**
+     * 自定义错误类型，允许开发者定义特定的错误类型进行监控。(可用)
+     *
+     *
+     * @public
+     * */
+    abstract customErrorTypes: TriggerLevelImplType[];
+    abstract getCustomErrorTypes(): TriggerLevelImplType[];
+    abstract setCustomErrorTypes(value: TriggerLevelImplType[]): this;
+    /**
+     * 是否捕获跨域请求的错误。 (可用)
+     *
+     * @defaultValue true
+     * @public
+     * */
     abstract crossOriginErrorTracking: boolean;
     abstract getCrossOriginErrorTracking(): boolean;
     abstract setCrossOriginErrorTracking(value: boolean): this;

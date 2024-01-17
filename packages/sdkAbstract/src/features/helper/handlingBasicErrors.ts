@@ -7,9 +7,10 @@ import {
     UserDeviceInfoImpl,
     TriggerLevelImplType,
     UserDiyContextImpl,
-    expandTheInformationObjectType
-
+    expandTheInformationObjectType,
+    NetworkContextImpl
 } from "../../index";
+import {MonitoringConfigImpl} from "../../index";
 
 /**
  *
@@ -19,16 +20,43 @@ import {
  * @public
  *
  */
-export class HandlingBasicErrors extends UserDeviceInfo implements ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl, UserDiyContextImpl {
+export class HandlingBasicErrors extends UserDeviceInfo implements ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl, UserDiyContextImpl, NetworkContextImpl {
 
 
-    expandTheInformation:expandTheInformationObjectType = {}
+    expandTheInformation: expandTheInformationObjectType = {}
     message: string = '';
     stack: string = '';
     kind: TriggerLevelImplWithKindType = 'stableTrigger';
     colno: number = 0;
     lineno: number = 0;
     type: TriggerLevelImplType = '';
+
+
+    downLink = ''
+    rtt = ''
+    saveData = false
+    effectiveType = ''
+    getDownLink(): string {
+        return this.downLink;
+    }
+
+    setDownLink(value: string): this {
+        this.downLink = value
+        return this;
+    }
+
+    getRtt(): string {
+        return this.rtt;
+    }
+
+    setRtt(value: string): this {
+        this.rtt = value
+        return this;
+    }
+
+    constructor(config?: MonitoringConfigImpl) {
+        super(config);
+    }
 
 
     getExpandTheInformation(): expandTheInformationObjectType {
@@ -79,11 +107,11 @@ export class HandlingBasicErrors extends UserDeviceInfo implements ErrorMessageI
 
 
     getColno(): number {
-        return 0;
+        return this.colno;
     }
 
     getLineno(): number {
-        return 0;
+        return this.lineno;
     }
 
     setColno(colno: number): this {
@@ -93,6 +121,24 @@ export class HandlingBasicErrors extends UserDeviceInfo implements ErrorMessageI
 
     setLineno(lineno: number): this {
         this.lineno = lineno
+        return this;
+    }
+
+    getEffectiveType(): string {
+        return this.effectiveType;
+    }
+
+    getSaveData(): boolean {
+        return this.saveData;
+    }
+
+    setEffectiveType(value: string): this {
+        this.effectiveType = value
+        return this;
+    }
+
+    setSaveData(value: boolean): this {
+        this.saveData = value
         return this;
     }
 }

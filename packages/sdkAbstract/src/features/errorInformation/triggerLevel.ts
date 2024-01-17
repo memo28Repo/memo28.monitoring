@@ -10,7 +10,7 @@
 
 export type TriggerLevelImplWithKindType = 'stableTrigger' | 'unstableTrigger'
 
-export type TriggerLevelImplType = 'window.error' | 'unhandledrejection' | 'user-defined' | ''
+export type TriggerLevelImplType = 'window.error' | 'unhandledrejection' | 'user-defined' | 'cross domain' | ''
 
 export abstract class TriggerLevelImpl {
 

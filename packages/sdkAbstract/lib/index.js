@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserDeviceInfo = exports.HandlingBasicErrors = exports.MonitoringConfigImpl = exports.TriggerLevelImpl = exports.ErrorMessageImpl = exports.UserDiyContextImpl = exports.ErrorStackImpl = exports.UserDeviceInfoImpl = void 0;
+exports.NetworkContextImpl = exports.UserDeviceInfo = exports.HandlingBasicErrors = exports.MonitoringConfigImpl = exports.TriggerLevelImpl = exports.ErrorMessageImpl = exports.UserDiyContextImpl = exports.ErrorStackImpl = exports.UserDeviceInfoImpl = void 0;
 var userContext_1 = require("./features/contextInformation/userContext");
 Object.defineProperty(exports, "UserDeviceInfoImpl", { enumerable: true, get: function () { return userContext_1.UserDeviceInfoImpl; } });
 var errorStack_1 = require("./features/errorInformation/errorStack");
@@ -17,3 +17,5 @@ var handlingBasicErrors_1 = require("./features/helper/handlingBasicErrors");
 Object.defineProperty(exports, "HandlingBasicErrors", { enumerable: true, get: function () { return handlingBasicErrors_1.HandlingBasicErrors; } });
 var userDeviceInfo_1 = require("./features/helper/userDeviceInfo");
 Object.defineProperty(exports, "UserDeviceInfo", { enumerable: true, get: function () { return userDeviceInfo_1.UserDeviceInfo; } });
+var networkContext_1 = require("./features/contextInformation/networkContext");
+Object.defineProperty(exports, "NetworkContextImpl", { enumerable: true, get: function () { return networkContext_1.NetworkContextImpl; } });
