@@ -44,3 +44,5 @@ jobs:
       - name: view package version
         run: pnpm view @memo28.monitoring/sdk-abstract && pnpm view @memo28.monitoring/sdk-browser && pnpm view @memo28.monitoring/service
 
+      - name: push tag
+        run: git push --tag
