@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AutoNetWork = exports.Network = void 0;
 class Network {
     constructor() {
-        this.downLink = '';
-        this.rtt = '';
+        this.downLink = 0;
+        this.rtt = 0;
         this.saveData = false;
         this.effectiveType = '';
         const connection = navigator.connection;
@@ -14,14 +14,14 @@ class Network {
         this.setEffectiveType(connection.effectiveType);
     }
     getDownLink() {
-        return this.downLink;
+        return this.downLink || 0;
     }
     setDownLink(value) {
         this.downLink = value;
         return this;
     }
     getRtt() {
-        return this.rtt;
+        return this.rtt || 0;
     }
     setRtt(value) {
         this.rtt = value;

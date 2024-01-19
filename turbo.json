@@ -44,6 +44,9 @@
     "build:md": {
       "cache": false
     },
+    "rmDeps": {
+      "cache": false
+    },
     "build:watch": {
       "cache": false
     },

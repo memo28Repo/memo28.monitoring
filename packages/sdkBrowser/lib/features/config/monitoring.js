@@ -16,7 +16,7 @@ class Monitoring {
         this.logLevel = 'DEBUG';
         this.maxRetries = 3;
         this.performanceSamplingRate = 0;
-        this.performanceTrackingEnabled = false;
+        this.performanceTrackingEnabled = true;
         this.reportingEndpoint = '';
         this.reportingInterval = 1000;
         this.whitelistUrls = [];

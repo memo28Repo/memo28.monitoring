@@ -6,6 +6,7 @@
   "module": "./dist/index",
   "types": "./dts/index.d.ts",
   "scripts": {
+    "rmDeps": "rm -rf ./node_modules",
     "test": "vitest run",
     "build:cjs": "tsc --module NodeNext --moduleResolution NodeNext  --rootDir ./src --outDir ./lib --experimentalDecorators true",
     "build:es": "tsc --module es6 --rootDir ./src --outDir ./dist --experimentalDecorators true",

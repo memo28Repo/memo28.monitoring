@@ -48,9 +48,6 @@ importers:
       '@ant-design/icons':
         specifier: ^5.2.6
         version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
-      '@memo28.monitoring/service':
-        specifier: ^0.0.2
-        version: link:../../packages/service
       '@memo28/service':
         specifier: ^4.1.2
         version: 4.1.2(@vitest/ui@0.27.3)(jsdom@21.1.0)(sass@1.69.7)(terser@5.26.0)
@@ -142,10 +139,10 @@ importers:
   packages/sdkBrowser:
     dependencies:
       '@memo28.monitoring/sdk-abstract':
-        specifier: ^0.0.2
+        specifier: ^0.0.5
         version: link:../sdkAbstract
       '@memo28.monitoring/service':
-        specifier: ^0.0.2
+        specifier: ^0.0.6
         version: link:../service
       dayjs:
         specifier: ^1.11.10
@@ -154,11 +151,11 @@ importers:
   packages/service:
     dependencies:
       '@memo28.monitoring/sdk-abstract':
-        specifier: ^0.0.2
+        specifier: ^0.0.5
         version: link:../sdkAbstract
       '@memo28/service':
-        specifier: ^4.1.2
-        version: 4.1.2(@vitest/ui@0.27.3)(jsdom@21.1.0)(sass@1.69.7)(terser@5.26.0)
+        specifier: ^4.1.3
+        version: 4.1.3(@vitest/ui@0.27.3)(jsdom@21.1.0)
       axios:
         specifier: ^1.6.5
         version: 1.6.5
@@ -2404,6 +2401,29 @@ packages:
 
   /@memo28/service@4.1.2(@vitest/ui@0.27.3)(jsdom@21.1.0)(sass@1.69.7)(terser@5.26.0):
     resolution: {integrity: sha512-IhCbAASWVcvyM4jb98bm5rdOH2CmxGREBByd6N+FUTjVLzleh1bJsSapefqz0E/VaWHi+3YaibSI2gMxC2mz0w==}
+    dependencies:
+      '@memo28/logs': 0.1.1(@vitest/ui@0.27.3)(jsdom@21.1.0)(sass@1.69.7)(terser@5.26.0)
+      '@memo28/serviceimpl': 1.0.5
+      '@memo28/utils': 1.2.4(@vitest/ui@0.27.3)(jsdom@21.1.0)(sass@1.69.7)(terser@5.26.0)
+      '@types/node': 18.19.5
+      is-retry-allowed: 3.0.0
+      reflect-metadata: 0.1.13
+    transitivePeerDependencies:
+      - '@edge-runtime/vm'
+      - '@vitest/browser'
+      - '@vitest/ui'
+      - happy-dom
+      - jsdom
+      - less
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: false
+
+  /@memo28/service@4.1.3(@vitest/ui@0.27.3)(jsdom@21.1.0):
+    resolution: {integrity: sha512-z9bV6Jh+NHvn3Yfb1usV3O67PTPhiZI/XD4LD1qd8QE7QSWAqyVeyOXaog3Gcwuz9E+29sN7zb3LE0Ve5eN7qg==}
     dependencies:
       '@memo28/logs': 0.1.1(@vitest/ui@0.27.3)(jsdom@21.1.0)(sass@1.69.7)(terser@5.26.0)
       '@memo28/serviceimpl': 1.0.5

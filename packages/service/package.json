@@ -1,11 +1,12 @@
 {
   "name": "@memo28.monitoring/service",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "main": "./lib/index",
   "module": "./dist/index",
   "types": "./dts/index.d.ts",
   "scripts": {
+    "rmDeps": "rm -rf ./node_modules",
     "test": "vitest run",
     "build:cjs": "tsc --module NodeNext --moduleResolution NodeNext --rootDir ./src --outDir ./lib --experimentalDecorators true",
     "build:es": "tsc --module es6 --rootDir ./src --outDir ./dist --experimentalDecorators true",
@@ -32,7 +33,7 @@
   },
   "dependencies": {
     "@memo28.monitoring/sdk-abstract": "^0.0.5",
-    "@memo28/service": "^4.1.2",
+    "@memo28/service": "^4.1.3",
     "axios": "^1.6.5"
   }
 }

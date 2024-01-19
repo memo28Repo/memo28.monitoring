@@ -14,8 +14,8 @@ export class Monitoring implements MonitoringConfigImpl {
     logLevel: "DEBUG" | "INFO" | "WARN" | "ERROR" = 'DEBUG';
     maxRetries: number = 3;
     performanceSamplingRate: number = 0;
-    performanceTrackingEnabled: boolean = false;
-    reportingEndpoint: string = '';
+    performanceTrackingEnabled: boolean = true;
+    reportingEndpoint: string = 'http://localhost:8089/api/version';
     reportingInterval: number = 1000;
     whitelistUrls: string[] = [];
 

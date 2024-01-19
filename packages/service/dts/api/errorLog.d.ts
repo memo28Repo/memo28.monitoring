@@ -1,5 +1,5 @@
 import { ListResponse, PagingParameters, Response } from '../http';
-import { ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl } from '@memo28.monitoring/sdk-abstract';
+import { PerformanceLongTaskTypes, PerformanceNavigation, PerformanceResource, PerformanceVisibilityState, ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl } from '@memo28.monitoring/sdk-abstract';
 import { NetworkContextImpl } from "@memo28.monitoring/sdk-abstract/src";
 /**
  *
@@ -19,7 +19,7 @@ export interface createErrorLogRequest {
      */
     data: string;
 }
-export interface errorLogDetails extends ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl, NetworkContextImpl {
+export interface errorLogDetails extends ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl, NetworkContextImpl, PerformanceLongTaskTypes, PerformanceNavigation, PerformanceResource, PerformanceVisibilityState {
     ID: number;
     CreatedAt: string;
 }

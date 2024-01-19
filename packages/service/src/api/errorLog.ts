@@ -1,6 +1,13 @@
 import {http, ListResponse, PagingParameters, Response} from '../http'
-import {ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl} from '@memo28.monitoring/sdk-abstract'
+import {
+    PerformanceLongTaskTypes,
+    PerformanceNavigation,
+    PerformanceResource,
+    PerformanceVisibilityState,
+    ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl
+} from '@memo28.monitoring/sdk-abstract'
 import {NetworkContextImpl} from "@memo28.monitoring/sdk-abstract/src";
+
 
 /**
  *
@@ -22,7 +29,8 @@ export interface createErrorLogRequest {
 }
 
 
-export interface errorLogDetails extends ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl, NetworkContextImpl {
+// @ts-ignore
+export interface errorLogDetails extends ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl, NetworkContextImpl, PerformanceLongTaskTypes, PerformanceNavigation, PerformanceResource, PerformanceVisibilityState {
     ID: number
     CreatedAt: string
 }
@@ -33,6 +41,9 @@ export function createErrorLog(errorLogRequest: createErrorLogRequest) {
         method: 'POST',
         url: "/monitoringErrors/createErrorLog",
         data: errorLogRequest,
+        pocketValue: {
+            data: 0
+        }
     })
 }
 
@@ -42,6 +53,9 @@ export function getErrorLog(id: number | string) {
         url: "/monitoringErrors/getErrorLog",
         params: {
             id
+        },
+        pocketValue: {
+            data: {}
         }
     })
 }
@@ -54,7 +68,7 @@ export function deleteErrorLog(id: number | string) {
         url: "/monitoringErrors/deleteErrorLog",
         data: {
             id
-        }
+        },
     })
 }
 
@@ -65,6 +79,12 @@ export function getErrorLogList(params: PagingParameters) {
         url: "/monitoringErrors/getErrorLogList",
         params: {
             ...params
+        },
+        pocketValue: {
+            data: {
+                list: [],
+                total: 0
+            }
         }
     })
 }

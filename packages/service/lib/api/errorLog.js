@@ -8,6 +8,9 @@ function createErrorLog(errorLogRequest) {
         method: 'POST',
         url: "/monitoringErrors/createErrorLog",
         data: errorLogRequest,
+        pocketValue: {
+            data: 0
+        }
     });
 }
 exports.createErrorLog = createErrorLog;
@@ -17,6 +20,9 @@ function getErrorLog(id) {
         url: "/monitoringErrors/getErrorLog",
         params: {
             id
+        },
+        pocketValue: {
+            data: {}
         }
     });
 }
@@ -28,7 +34,7 @@ function deleteErrorLog(id) {
         url: "/monitoringErrors/deleteErrorLog",
         data: {
             id
-        }
+        },
     });
 }
 exports.deleteErrorLog = deleteErrorLog;
@@ -36,7 +42,13 @@ function getErrorLogList(params) {
     return (0, http_1.http)({
         // @ts-ignore
         url: "/monitoringErrors/getErrorLogList",
-        params: Object.assign({}, params)
+        params: Object.assign({}, params),
+        pocketValue: {
+            data: {
+                list: [],
+                total: 0
+            }
+        }
     });
 }
 exports.getErrorLogList = getErrorLogList;

@@ -18,7 +18,7 @@ class TrackingCallback {
         (_c = this.options.config) === null || _c === void 0 ? void 0 : _c.setMaxRetries(retries - 1);
         let clearTimeoutId = setTimeout(() => {
             var _a, _b;
-            (_b = (_a = this.options).listening) === null || _b === void 0 ? void 0 : _b.call(_a, target);
+            (_b = (_a = this.options).listening) === null || _b === void 0 ? void 0 : _b.call(_a, target, this.listening.bind(this, target));
             clearTimeout(clearTimeoutId);
         }, (_d = this.options.config) === null || _d === void 0 ? void 0 : _d.getReportingInterval());
         return this;

@@ -3,7 +3,8 @@ import {List, Spin} from 'antd';
 import {getErrorLogIcon} from "~/features/errorLog/icons.ts";
 import {useNavigate} from "react-router-dom";
 import {routerPathMap} from "~/router";
-import {useErrorLogList} from "~/pages/hooks/useErrorLog.ts";
+import {useErrorLogList} from "~/pages/home/hooks/useErrorLog.ts";
+import {errorLogDetails} from "@memo28.monitoring/service";
 
 type PaginationPosition = 'top' | 'bottom' | 'both';
 
@@ -23,6 +24,15 @@ const ErrorList: React.FC = () => {
         errorLogList.refPage(errorLogList.pageNum)
     }, [errorLogList.pageNum]);
 
+
+    function getType(item: errorLogDetails) {
+        return item.type || 'unknown'
+    }
+
+    function getMessage(item: errorLogDetails) {
+        if (item.type === 'performance') return item.entryType
+        return item.message || 'no message'
+    }
 
     return (
         <>
@@ -44,8 +54,8 @@ const ErrorList: React.FC = () => {
                                             a: 1
                                         }
                                     })
-                                }} href="javascript:;">{item.type || 'unknown'}</a>}
-                                description={item.message || 'no message'}
+                                }} href="javascript:;">{getType(item)}</a>}
+                                description={getMessage(item)}
                             />
 
                         </List.Item>

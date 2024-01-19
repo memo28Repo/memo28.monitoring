@@ -4,17 +4,17 @@ export declare abstract class NetworkContextImpl {
      *
      * @public
      */
-    abstract downLink: string;
-    abstract getDownLink(): string;
-    abstract setDownLink(value: string): this;
+    abstract downLink: number;
+    abstract getDownLink(): number;
+    abstract setDownLink(value: number): this;
     /**
      *
      * 表示设备与服务器之间的往返时延，以毫秒为单位。
      * @public
      */
-    abstract rtt: string;
-    abstract getRtt(): string;
-    abstract setRtt(value: string): this;
+    abstract rtt: number;
+    abstract getRtt(): number;
+    abstract setRtt(value: number): this;
     /**
      *
      * 表示用户代理是否启用了数据节省模式

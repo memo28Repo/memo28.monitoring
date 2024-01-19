@@ -12,14 +12,14 @@ const userDeviceInfo_1 = require("./userDeviceInfo");
  */
 class HandlingBasicErrors extends userDeviceInfo_1.UserDeviceInfo {
     getDownLink() {
-        return this.downLink;
+        return this.downLink || 0;
     }
     setDownLink(value) {
         this.downLink = value;
         return this;
     }
     getRtt() {
-        return this.rtt;
+        return this.rtt || 0;
     }
     setRtt(value) {
         this.rtt = value;
@@ -34,8 +34,8 @@ class HandlingBasicErrors extends userDeviceInfo_1.UserDeviceInfo {
         this.colno = 0;
         this.lineno = 0;
         this.type = '';
-        this.downLink = '';
-        this.rtt = '';
+        this.downLink = 0;
+        this.rtt = 0;
         this.saveData = false;
         this.effectiveType = '';
     }

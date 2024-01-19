@@ -9,3 +9,4 @@ export { MonitoringConfigImpl } from './features/monitoringConfig/monitoringConf
 export { HandlingBasicErrors } from './features/helper/handlingBasicErrors';
 export { UserDeviceInfo } from './features/helper/userDeviceInfo';
 export { NetworkContextImpl } from './features/contextInformation/networkContext';
+export type { PerformanceLongTaskTypes, PerformanceNavigation, PerformanceResource, PerformanceVisibilityState, Attribution } from './features/contextInformation/performance';

@@ -5,22 +5,22 @@ export abstract class NetworkContextImpl {
      *
      * @public
      */
-    abstract downLink: string
+    abstract downLink: number
 
-    abstract getDownLink(): string
+    abstract getDownLink(): number
 
-    abstract setDownLink(value: string): this
+    abstract setDownLink(value: number): this
 
     /**
      *
      * 表示设备与服务器之间的往返时延，以毫秒为单位。
      * @public
      */
-    abstract rtt: string
+    abstract rtt: number
 
-    abstract getRtt(): string
+    abstract getRtt(): number
 
-    abstract setRtt(value: string): this
+    abstract setRtt(value: number): this
 
 
     /**

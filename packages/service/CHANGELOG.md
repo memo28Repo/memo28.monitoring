@@ -1,5 +1,11 @@
 # @memo28.monitoring/service
 
+## 0.0.6
+
+### Patch Changes
+
+- 新增监听接口 白黑名单选项和设置上传接口地址配置
+
 ## 0.0.5
 
 ### Patch Changes

@@ -10,6 +10,7 @@
     "installAll":"pnpm install",
     "build:api": "pnpm build && api-extractor run --local --verbose",
     "prepare": "husky install",
+    "rmAllDeps": "turbo run rmDeps --color",
     "updateDep": "turbo run updateDep --color",
     "build": "turbo run build --color",
     "build:app": "turbo run build:app --color",

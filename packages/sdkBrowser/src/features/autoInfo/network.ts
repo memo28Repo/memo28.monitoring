@@ -1,8 +1,8 @@
 import {HandlingBasicErrors, NetworkContextImpl} from "@memo28.monitoring/sdk-abstract";
 
 export class Network implements NetworkContextImpl {
-    downLink = ''
-    rtt = ''
+    downLink = 0
+    rtt = 0
     saveData = false
     effectiveType = ''
 
@@ -14,20 +14,20 @@ export class Network implements NetworkContextImpl {
         this.setEffectiveType(connection.effectiveType)
     }
 
-    getDownLink(): string {
-        return this.downLink;
+    getDownLink(): number {
+        return this.downLink || 0;
     }
 
-    setDownLink(value: string): this {
+    setDownLink(value: number): this {
         this.downLink = value
         return this;
     }
 
-    getRtt(): string {
-        return this.rtt;
+    getRtt(): number {
+        return this.rtt || 0;
     }
 
-    setRtt(value: string): this {
+    setRtt(value: number): this {
         this.rtt = value
         return this;
     }
