@@ -1,6 +1,6 @@
-import { ServiceUtils } from '../../../../memo/service/service';
+import { ServiceUtils } from '@memo28/service';
 export declare const service: ServiceUtils<object>;
-export declare const http: <R>(req: import("../../../../memo/service/service").initializeConfigurationTypes & object) => Promise<R>;
+export declare const http: <R>(req: import("@memo28/service").initializeConfigurationTypes & object) => Promise<R>;
 export interface PagingParameters {
     pageNo: number;
     pageSize: number;

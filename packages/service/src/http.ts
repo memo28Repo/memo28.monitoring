@@ -1,4 +1,4 @@
-import {ServiceUtils, MultiVersionSwitching, RetData} from '../../../../memo/service/service'
+import {ServiceUtils, MultiVersionSwitching, RetData} from '@memo28/service'
 
 
 export const service = new ServiceUtils().modules({
