@@ -1,0 +1,41 @@
+{
+  "name": "@memo28.monitoring/sdk-uniapp",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./lib/index",
+  "module": "./dist/index",
+  "types": "./dts/index.d.ts",
+  "scripts": {
+    "rmDeps": "rm -rf ./node_modules",
+    "test": "vitest run",
+    "build:cjs": "tsc --module commonjs --rootDir ./src --outDir ./lib --experimentalDecorators true",
+    "build:es": "tsc --module es6 --rootDir ./src --outDir ./dist --experimentalDecorators true",
+    "build:cjs:watch": "tsc --module commonjs --rootDir ./src --outDir ./lib --experimentalDecorators true --watch",
+    "build:es:watch": "tsc --module es6 --rootDir ./src --outDir ./dist --experimentalDecorators true --watch",
+    "build": "pnpm build:cjs && pnpm build:es",
+    "build:watch": "pnpm build:es:watch && pnpm build:cjs:watch",
+    "build:md": "pnpm build && api-extractor run --local --verbose && sh mv.sh",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "links": "pnpm link --global"
+  },
+  "files": [
+    "./dist",
+    "./lib",
+    "./dts"
+  ],
+  "keywords": [],
+  "author": "memo.repo",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "dependencies": {
+    "@dcloudio/types": "^3.4.7",
+    "@memo28.monitoring/sdk-abstract": "^0.0.6",
+    "@memo28.monitoring/service": "^0.0.7",
+    "@uni-helper/axios-adapter": "^1.5.2",
+    "dayjs": "^1.11.10"
+  }
+}

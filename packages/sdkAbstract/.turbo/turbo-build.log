@@ -1,0 +1,12 @@
+
+> @memo28.monitoring/sdk-abstract@0.0.6 build /Users/devops/Desktop/monorepo/memo28.monitoring/packages/sdkAbstract
+> pnpm build:cjs && pnpm build:es
+
+
+> @memo28.monitoring/sdk-abstract@0.0.6 build:cjs /Users/devops/Desktop/monorepo/memo28.monitoring/packages/sdkAbstract
+> tsc --module NodeNext --moduleResolution NodeNext  --rootDir ./src --outDir ./lib --experimentalDecorators true
+
+
+> @memo28.monitoring/sdk-abstract@0.0.6 build:es /Users/devops/Desktop/monorepo/memo28.monitoring/packages/sdkAbstract
+> tsc --module es6 --rootDir ./src --outDir ./dist --experimentalDecorators true
+
