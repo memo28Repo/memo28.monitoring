@@ -1,7 +1,14 @@
+export type UserDeviceInfoImplEnv = "uniApp" | "browser" | ''
 /**
  * 表示用户信息和设备信息的抽象类。
  */
 export abstract class UserDeviceInfoImpl {
+
+    abstract env: UserDeviceInfoImplEnv
+
+    abstract getEnv(): UserDeviceInfoImplEnv
+
+    abstract setEnv(env: UserDeviceInfoImplEnv):this
 
     abstract createTime: string
 

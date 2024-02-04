@@ -1,8 +1,11 @@
 import {UserDeviceInfoImpl} from "@memo28.monitoring/sdk-abstract";
 import {MonitoringConfigImpl} from "@memo28.monitoring/sdk-abstract";
+import {UserDeviceInfoImplEnv} from "@memo28.monitoring/sdk-abstract/dts/features/contextInformation/userContext";
 
 
 export class UserDeviceInfoUniApp implements UserDeviceInfoImpl {
+
+    env: UserDeviceInfoImplEnv = 'uniApp'
 
     createTime: string = ''
 
@@ -19,6 +22,17 @@ export class UserDeviceInfoUniApp implements UserDeviceInfoImpl {
     screenWidth?: number | undefined;
 
     screenHeight?: number | undefined;
+
+
+    getEnv() {
+        return this.env
+    }
+
+    setEnv(env: UserDeviceInfoImplEnv) {
+        this.env = env
+        return this
+
+    }
 
     getCreateTime(): string {
         return this.createTime;

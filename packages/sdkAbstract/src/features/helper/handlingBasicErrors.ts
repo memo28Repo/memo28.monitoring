@@ -22,7 +22,6 @@ import {MonitoringConfigImpl} from "../../index";
  */
 export class HandlingBasicErrors extends UserDeviceInfo implements ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl, UserDiyContextImpl, NetworkContextImpl {
 
-
     expandTheInformation: expandTheInformationObjectType = {}
     message: string = '';
     stack: string = '';
@@ -37,6 +36,8 @@ export class HandlingBasicErrors extends UserDeviceInfo implements ErrorMessageI
     rtt = 0
     saveData = false
     effectiveType = ''
+
+
 
     getUserId(): string {
         return this.userId;

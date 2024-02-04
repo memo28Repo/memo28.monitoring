@@ -4,12 +4,21 @@ import dayjs from 'dayjs'
 type createTrackingUserInteractionEventOptions<T extends any> = {
     done(target: T, config?: MonitoringConfigImpl): void
     createTrackingUserInteraction(target: T, config?: MonitoringConfigImpl): void
+    config: MonitoringConfigImpl
 }
 
-// @ts-ignore
-export function createTrackingUserInteractionEvent<T extends any>(extendsClass: any, createTrackingUserInteractionEventOptions?: createTrackingUserInteractionEventOptions<T>): Pick<T, 'setExpandTheInformation'> & {
+
+export type createTrackingUserInteractionEventReturns =  {
     done(): void
-} {
+
+    setExpandTheInformation(obj: {
+        [key: string]: string | number;
+    }): void
+}
+
+
+// @ts-ignore
+export function createTrackingUserInteractionEvent<T extends any>(extendsClass: any, createTrackingUserInteractionEventOptions?: createTrackingUserInteractionEventOptions<T>): createTrackingUserInteractionEventReturns {
     // @ts-ignore
     class TrackingUserInteractionEvent extends extendsClass {
 
@@ -42,5 +51,5 @@ export function createTrackingUserInteractionEvent<T extends any>(extendsClass: 
     }
 
     // @ts-ignore
-    return TrackingUserInteractionEvent as Pick<T, 'setExpandTheInformation'> & { done(): void }
+    return new TrackingUserInteractionEvent(createTrackingUserInteractionEventOptions?.config) as createTrackingUserInteractionEventReturns
 }

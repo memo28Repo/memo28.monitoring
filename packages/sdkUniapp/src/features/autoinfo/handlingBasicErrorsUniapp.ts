@@ -23,6 +23,7 @@ import {
 export class HandlingBasicErrorsUniApp extends UserDeviceInfoUniApp implements ErrorMessageImpl, ErrorStackImpl, UserDeviceInfoImpl, TriggerLevelImpl, UserDiyContextImpl, NetworkContextImpl {
 
 
+
     expandTheInformation: expandTheInformationObjectType = {}
     message: string = '';
     stack: string = '';

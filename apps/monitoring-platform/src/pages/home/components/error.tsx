@@ -39,7 +39,7 @@ const Errors: FC<{ details: Partial<errorLogDetails> }> = ({details}) => {
                 key: 4,
                 label: '报错堆栈',
                 children: <>
-                    <SyntaxHighlighter language={'json'} style={docco} children={details.stack || ''}/>
+                    <SyntaxHighlighter showLineNumbers showInlineLineNumbers language={'json'} style={docco} children={details.stack || ''}/>
                 </>
             }
         ]}/>

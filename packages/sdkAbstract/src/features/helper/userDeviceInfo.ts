@@ -1,5 +1,6 @@
 import {UserDeviceInfoImpl} from "../../index";
 import {MonitoringConfigImpl} from "../../index";
+import {UserDeviceInfoImplEnv} from "../contextInformation/userContext";
 
 export class UserDeviceInfo implements UserDeviceInfoImpl {
 
@@ -18,6 +19,19 @@ export class UserDeviceInfo implements UserDeviceInfoImpl {
     screenWidth?: number | undefined;
 
     screenHeight?: number | undefined;
+
+
+    env: UserDeviceInfoImplEnv = 'browser'
+
+
+    getEnv() {
+        return this.env
+    }
+
+    setEnv(env: UserDeviceInfoImplEnv) {
+        this.env = env
+        return this
+    }
 
     getCreateTime(): string {
         return this.createTime;

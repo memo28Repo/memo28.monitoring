@@ -1,9 +1,10 @@
 import {
     createTrackingUserInteractionEvent,
+    createTrackingUserInteractionEventReturns,
     MonitoringConfigImpl,
     TrackingCallback
 } from "@memo28.monitoring/sdk-abstract";
-import {service} from "@memo28.monitoring/service";
+import {service, createErrorLog, isAxiosError} from "@memo28.monitoring/service";
 import {TrackingError} from '../features/catch/error'
 import {TrackingNetwork} from "../features/catch/network";
 import {HandlingBasicErrorsUniApp} from "../features/autoinfo/handlingBasicErrorsUniapp";
@@ -12,6 +13,13 @@ import {createUniAppAxiosAdapter} from '@uni-helper/axios-adapter'
 
 
 export class Run {
+
+    private TrackingNetwork: TrackingNetwork | null = null
+
+
+    private TrackingError: TrackingError | null = null
+
+    private trackingUserInteractionEvent: createTrackingUserInteractionEventReturns | null = null
 
     constructor(private config: MonitoringConfigImpl) {
 
@@ -22,29 +30,57 @@ export class Run {
             adapter: createUniAppAxiosAdapter()
         })
 
-        new TrackingError(config, new TrackingCallback({
+        this.TrackingError = new TrackingError(config, new TrackingCallback({
             config, listening(target, selfCb) {
-
+                createErrorLog({
+                    data: JSON.parse(JSON.stringify(target))
+                }).then((res) => {
+                    if (isAxiosError(res)) selfCb(target)
+                }).catch((err) => {
+                    selfCb(target)
+                })
             },
         }))
 
-        new TrackingNetwork(config, new TrackingCallback({
+        this.TrackingNetwork = new TrackingNetwork(config, new TrackingCallback({
             config, listening(target, selfCb) {
-
+                createErrorLog({
+                    data: JSON.parse(JSON.stringify(target))
+                }).then((res) => {
+                    if (isAxiosError(res)) selfCb(target)
+                }).catch((err) => {
+                    selfCb(target)
+                })
             },
         }))
-    }
 
-    getTrackingUserInteractionEvent() {
-        return createTrackingUserInteractionEvent<HandlingBasicErrorsUniApp>(HandlingBasicErrorsUniApp, {
+        this.trackingUserInteractionEvent = createTrackingUserInteractionEvent<HandlingBasicErrorsUniApp>(HandlingBasicErrorsUniApp, {
             done(target: HandlingBasicErrorsUniApp, config?: MonitoringConfigImpl) {
+                createErrorLog({
+                    data: JSON.parse(JSON.stringify(target))
+                }).then()
             },
             createTrackingUserInteraction(target: HandlingBasicErrorsUniApp, config?: MonitoringConfigImpl) {
                 if (config?.getCaptureNetworkRequests()) {
                     new AutoNetWork(target, new Network())
                 }
-            }
-        })
+            },
+            config: config
+        });
+
+    }
+
+
+    setUserId(userId: string) {
+        this.TrackingError?.setUserId(userId)
+        this.TrackingNetwork?.setUserId(userId)
+        // @ts-ignore
+        this.trackingUserInteractionEvent?.setUserId?.(userId)
+        return this
+    }
+
+    getTrackingUserInteractionEvent() {
+        return this.trackingUserInteractionEvent
     }
 }
 

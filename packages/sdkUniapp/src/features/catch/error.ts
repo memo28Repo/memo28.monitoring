@@ -22,7 +22,8 @@ export class TrackingError extends HandlingBasicErrorsUniApp {
         // }
         uni.onError((error) => {
             this.setMessage('uni.onError')
-            this.setStack(error)
+            // @ts-ignore
+            this.setStack(error?.stack || "")
             this.setCreateTime(dayjs().format("YYYY-MM-DD HH:mm:ss"))
             this.setType('uniApp.onError')
             this.callback?.listening(this)

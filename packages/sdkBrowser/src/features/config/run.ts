@@ -2,6 +2,7 @@ import {
     MonitoringConfigImpl,
     TrackingCallback,
     createTrackingUserInteractionEvent,
+    createTrackingUserInteractionEventReturns,
     HandlingBasicErrors
 } from "@memo28.monitoring/sdk-abstract";
 import {TrackingWindowError} from '../windowError/trackingWindowError'
@@ -22,7 +23,7 @@ export class Run {
 
     private TrackingCrossOriginError: TrackingCrossOriginError | null = null
 
-    private readonly TrackingUserInteractionEvent:  Pick<HandlingBasicErrors, "setExpandTheInformation"> & {done(): void} | null = null
+    private readonly TrackingUserInteractionEvent:  createTrackingUserInteractionEventReturns | null = null
 
     constructor(private config: MonitoringConfigImpl) {
 
@@ -42,7 +43,8 @@ export class Run {
             },
             createTrackingUserInteraction(target, config) {
                 if (config?.getCaptureNetworkRequests()) new AutoNetWork(target, new Network())
-            }
+            },
+            config: config
         });
 
 
