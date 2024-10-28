@@ -1,5 +1,11 @@
 # monitoring-platform
 
+## 0.0.5
+
+### Patch Changes
+
+- @memo28.monitoring/service@0.0.8
+
 ## 0.0.4
 
 ### Patch Changes
