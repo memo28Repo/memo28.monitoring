@@ -8,7 +8,14 @@ export class TriggerNetwork {
 
 
     trigger(msg: object) {
-        const data = JSON.parse(JSON.stringify(msg))
+        let newMsg = msg
+
+        if (typeof newMsg === 'object') {
+            if (Reflect.get(newMsg, 'config')) Reflect.deleteProperty(newMsg, 'config')
+            if (Reflect.get(newMsg, 'trackingCallback')) Reflect.deleteProperty(newMsg, 'trackingCallback')
+        }
+
+        const data = JSON.parse(JSON.stringify(newMsg))
         if (this.config.getCustomRequests()) {
             return new Promise((resolve) => {
                 this.config.getCustomRequests?.()?.onReport?.(data);

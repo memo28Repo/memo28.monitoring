@@ -1,6 +1,6 @@
 {
   "name": "@memo28.monitoring/sdk-browser",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
   "main": "./lib/index",
   "module": "./dist/index",
@@ -32,8 +32,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@memo28.monitoring/sdk-abstract": "^0.0.6",
-    "@memo28.monitoring/service": "^0.0.7",
+    "@memo28.monitoring/sdk-abstract": "^0.0.7",
+    "@memo28.monitoring/service": "^0.0.8",
     "dayjs": "^1.11.10"
   }
 }

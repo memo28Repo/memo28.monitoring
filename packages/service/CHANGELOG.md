@@ -1,5 +1,12 @@
 # @memo28.monitoring/service
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @memo28.monitoring/sdk-abstract@0.0.7
+
 ## 0.0.7
 
 ### Patch Changes

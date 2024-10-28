@@ -1,6 +1,6 @@
 {
   "name": "@memo28.monitoring/service",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
   "main": "./lib/index",
   "module": "./dist/index",
@@ -32,7 +32,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@memo28.monitoring/sdk-abstract": "^0.0.6",
+    "@memo28.monitoring/sdk-abstract": "^0.0.7",
     "@memo28/service": "^4.1.4",
     "axios": "^1.6.5"
   }

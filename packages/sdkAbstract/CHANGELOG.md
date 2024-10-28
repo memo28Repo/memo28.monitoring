@@ -1,5 +1,11 @@
 # @memo28.monitoring/sdk-abstract
 
+## 0.0.7
+
+### Patch Changes
+
+- feat(@memo28.monitoring/sdk-abstract,@memo28.monitoring/sdk-browser): 新增 CustomRequests 配置参数，web 端已实现
+
 ## 0.0.6
 
 ### Patch Changes

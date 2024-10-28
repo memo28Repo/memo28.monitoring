@@ -1,6 +1,6 @@
 {
   "name": "@memo28.monitoring/sdk-uniapp",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "./lib/index",
   "module": "./dist/index",
@@ -33,8 +33,8 @@
   },
   "dependencies": {
     "@dcloudio/types": "^3.4.7",
-    "@memo28.monitoring/sdk-abstract": "^0.0.6",
-    "@memo28.monitoring/service": "^0.0.7",
+    "@memo28.monitoring/sdk-abstract": "^0.0.7",
+    "@memo28.monitoring/service": "^0.0.8",
     "@uni-helper/axios-adapter": "^1.5.2",
     "dayjs": "^1.11.10"
   }
