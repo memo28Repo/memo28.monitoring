@@ -1,6 +1,6 @@
 // import {AutoNetWork, Network} from "../autoinfo/network";
 import { TrackingCallback} from "@memo28.monitoring/sdk-abstract";
-import {MonitoringConfigImpl} from "@memo28.monitoring/sdk-abstract/src";
+import {MonitoringConfigImpl} from "@memo28.monitoring/sdk-abstract";
 import dayjs from "dayjs";
 import {HandlingBasicErrorsUniApp} from "../autoinfo/handlingBasicErrorsUniapp";
 

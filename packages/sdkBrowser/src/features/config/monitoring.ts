@@ -1,4 +1,4 @@
-import {MonitoringConfigImpl, TriggerLevelImplType} from "@memo28.monitoring/sdk-abstract";
+import {CustomRequests, MonitoringConfigImpl, TriggerLevelImplType} from "@memo28.monitoring/sdk-abstract";
 
 export class Monitoring implements MonitoringConfigImpl {
     blacklistUrls: string[] = [];
@@ -6,6 +6,7 @@ export class Monitoring implements MonitoringConfigImpl {
     captureNetworkRequests: boolean = true;
     captureUserDetails: boolean = true;
     captureUserInteractions: boolean = false;
+    customRequests: CustomRequests | null = null;
     clearCacheOnError: boolean = false;
     crossOriginErrorTracking: boolean = true;
     customErrorTypes: TriggerLevelImplType[] = ['window.error', 'unhandledrejection', 'user-defined', 'cross domain'];
@@ -18,6 +19,17 @@ export class Monitoring implements MonitoringConfigImpl {
     reportingEndpoint: string = 'http://localhost:8089/api/version';
     reportingInterval: number = 1000;
     whitelistUrls: string[] = [];
+
+
+    setCustomRequests(value: CustomRequests | null): this {
+        this.customRequests = value
+        return this
+    }
+
+    getCustomRequests(): CustomRequests | null {
+        return this.customRequests;
+    }
+
 
     getBlacklistUrls(): string[] {
         return this.blacklistUrls;

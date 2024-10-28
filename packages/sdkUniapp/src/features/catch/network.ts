@@ -1,4 +1,4 @@
-import {MonitoringConfigImpl} from "@memo28.monitoring/sdk-abstract/src";
+import {MonitoringConfigImpl} from "@memo28.monitoring/sdk-abstract";
 import {TrackingCallback} from "@memo28.monitoring/sdk-abstract";
 import {HandlingBasicErrorsUniApp} from "../autoinfo/handlingBasicErrorsUniapp";
 import {Network, AutoNetWork} from "../autoinfo/network";

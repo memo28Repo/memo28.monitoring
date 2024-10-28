@@ -7,11 +7,10 @@ type createTrackingUserInteractionEventOptions<T extends any> = {
     config: MonitoringConfigImpl
 }
 
-
-export type createTrackingUserInteractionEventReturns =  {
+export type createTrackingUserInteractionEventReturns = {
     done(): void
 
-    setExpandTheInformation(obj: {
+    setExpandTheInformation(obj: ()=>{
         [key: string]: string | number;
     }): void
 }

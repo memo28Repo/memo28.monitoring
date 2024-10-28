@@ -5,6 +5,12 @@ export interface trackingCallbackOptions<T> {
     config?: MonitoringConfigImpl
 }
 
+
+/**
+ * 监听回调
+ *
+ * 根据一些监控配置回调请求次数
+ */
 export class TrackingCallback<T = any> {
 
     private retriesConst = 0

@@ -1,5 +1,7 @@
 export type {UserDeviceInfoImplEnv} from "./features/contextInformation/userContext";
 
+export type {CustomRequests} from './features/contextInformation/customRequests'
+
 export {UserDeviceInfoImpl} from "./features/contextInformation/userContext";
 
 export {ErrorStackImpl} from "./features/errorInformation/errorStack";

@@ -6,6 +6,10 @@
  * @FilePath: /memo28.monitoring/packages/sdkBrowser/src/index.ts
  */
 
+import type {CustomRequests} from '@memo28.monitoring/sdk-abstract'
+
+export type {CustomRequests}
+
 export {TrackingWindowError} from './features/windowError/trackingWindowError';
 export {TrackingUnhandledrejection} from './features/windowError/trackingUnhandledrejection'
 export {Monitoring} from './features/config/monitoring'

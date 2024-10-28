@@ -8,9 +8,10 @@ import {
 import {TrackingWindowError} from '../windowError/trackingWindowError'
 import {TrackingUnhandledrejection} from "../windowError/trackingUnhandledrejection";
 import {TrackingCrossOriginError} from "../windowError/trackingCrossOriginError";
-import {createErrorLog, isAxiosError, service} from "@memo28.monitoring/service";
+import {isAxiosError, service} from "@memo28.monitoring/service";
 import {TrackingPerformance} from '../windowError/trackingPerformance'
 import {AutoNetWork, Network} from "../autoInfo/network";
+import {TriggerNetwork} from "./trigger";
 
 
 export class Run {
@@ -23,23 +24,28 @@ export class Run {
 
     private TrackingCrossOriginError: TrackingCrossOriginError | null = null
 
-    private readonly TrackingUserInteractionEvent:  createTrackingUserInteractionEventReturns | null = null
+    private readonly TrackingUserInteractionEvent: createTrackingUserInteractionEventReturns | null = null
+
+    private TriggerNetwork: TriggerNetwork | null = null
+
 
     constructor(private config: MonitoringConfigImpl) {
+        this.TriggerNetwork = new TriggerNetwork(config)
 
-        if (!config.getReportingEndpoint().trim().length) {
-            throw new Error("reportingEndpoint 字段不能为空")
+        if (!config?.getCustomRequests?.()) {
+            if (!config.getReportingEndpoint().trim().length) {
+                throw new Error("reportingEndpoint 字段不能为空")
+            }
+            service.setDefaultConfig({
+                baseURL: config.getReportingEndpoint()
+            })
         }
 
-        service.setDefaultConfig({
-            baseURL: config.getReportingEndpoint()
-        })
 
+        const that = this
         this.TrackingUserInteractionEvent = createTrackingUserInteractionEvent<HandlingBasicErrors>(HandlingBasicErrors, {
             done(target) {
-                createErrorLog({
-                    data: JSON.parse(JSON.stringify(target))
-                }).then()
+                that.TriggerNetwork?.trigger(target)
             },
             createTrackingUserInteraction(target, config) {
                 if (config?.getCaptureNetworkRequests()) new AutoNetWork(target, new Network())
@@ -50,10 +56,7 @@ export class Run {
 
         this.TrackingPerformance = new TrackingPerformance(config, new TrackingCallback({
             config, listening(target, triggerListening) {
-                createErrorLog({
-                    // @ts-ignore
-                    data: JSON.parse(JSON.stringify(target))
-                }).then(res => {
+                that.TriggerNetwork?.trigger(target).then(res => {
                     if (isAxiosError(res)) triggerListening(target)
                 }).catch(() => {
                     triggerListening(target)
@@ -63,9 +66,7 @@ export class Run {
 
         this.TrackingWindowError = new TrackingWindowError(config, new TrackingCallback({
             config, listening(target, triggerListening) {
-                createErrorLog({
-                    data: JSON.parse(JSON.stringify(target))
-                }).then(res => {
+                that.TriggerNetwork?.trigger(target).then(res => {
                     if (isAxiosError(res)) triggerListening(target)
                 }).catch(() => {
                     triggerListening(target)
@@ -75,9 +76,7 @@ export class Run {
 
         this.TrackingUnhandledrejection = new TrackingUnhandledrejection(config, new TrackingCallback({
             config, listening(target, triggerListening) {
-                createErrorLog({
-                    data: JSON.parse(JSON.stringify(target))
-                }).then(res => {
+                that.TriggerNetwork?.trigger(target).then(res => {
                     if (isAxiosError(res)) triggerListening(target)
                 }).catch(() => {
                     triggerListening(target)
@@ -87,9 +86,7 @@ export class Run {
 
         this.TrackingCrossOriginError = new TrackingCrossOriginError(config, new TrackingCallback({
             config, listening(target) {
-                createErrorLog({
-                    data: JSON.parse(JSON.stringify(target))
-                }).then()
+                that.TriggerNetwork?.trigger(target)
             },
         }))
 

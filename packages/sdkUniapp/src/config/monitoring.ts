@@ -1,4 +1,4 @@
-import {MonitoringConfigImpl, TriggerLevelImplType} from "@memo28.monitoring/sdk-abstract";
+import {CustomRequests, MonitoringConfigImpl, TriggerLevelImplType} from "@memo28.monitoring/sdk-abstract";
 
 export class Monitoring implements MonitoringConfigImpl {
     blacklistUrls: string[] = [];
@@ -13,11 +13,23 @@ export class Monitoring implements MonitoringConfigImpl {
     errorTrackingEnabled: boolean = true;
     logLevel: "DEBUG" | "INFO" | "WARN" | "ERROR" = 'DEBUG';
     maxRetries: number = 3;
+    customRequests: CustomRequests | null = null;
     performanceSamplingRate: number = 0;
     performanceTrackingEnabled: boolean = true;
     reportingEndpoint: string = 'http://localhost:8089/api/version';
     reportingInterval: number = 1000;
     whitelistUrls: string[] = [];
+
+    setCustomRequests(value: CustomRequests | null): this {
+        this.customRequests = value
+        return this
+    }
+
+    getCustomRequests(): CustomRequests | null {
+        return this.customRequests;
+    }
+
+
 
     getBlacklistUrls(): string[] {
         return this.blacklistUrls;

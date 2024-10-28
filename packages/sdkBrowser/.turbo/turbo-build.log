@@ -1,12 +1,12 @@
 
-> @memo28.monitoring/sdk-browser@0.0.7 build /Users/devops/Desktop/monorepo/memo28.monitoring/packages/sdkBrowser
+> @memo28.monitoring/sdk-browser@0.0.7 build /Users/qiushijie/Desktop/monorepo/memo28.monitoring/packages/sdkBrowser
 > pnpm build:cjs && pnpm build:es
 
 
-> @memo28.monitoring/sdk-browser@0.0.7 build:cjs /Users/devops/Desktop/monorepo/memo28.monitoring/packages/sdkBrowser
+> @memo28.monitoring/sdk-browser@0.0.7 build:cjs /Users/qiushijie/Desktop/monorepo/memo28.monitoring/packages/sdkBrowser
 > tsc --module commonjs --rootDir ./src --outDir ./lib --experimentalDecorators true
 
 
-> @memo28.monitoring/sdk-browser@0.0.7 build:es /Users/devops/Desktop/monorepo/memo28.monitoring/packages/sdkBrowser
+> @memo28.monitoring/sdk-browser@0.0.7 build:es /Users/qiushijie/Desktop/monorepo/memo28.monitoring/packages/sdkBrowser
 > tsc --module es6 --rootDir ./src --outDir ./dist --experimentalDecorators true
 

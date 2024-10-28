@@ -1,4 +1,5 @@
 import {TriggerLevelImplType} from "../errorInformation/triggerLevel";
+import {CustomRequests} from "../contextInformation/customRequests";
 
 /**
  * 表示前端监控配置的接口。
@@ -58,6 +59,9 @@ export abstract class MonitoringConfigImpl {
     /**
      * 报告数据的终端/接口地址。(可用)
      *
+     * 该配置只是修改请求的baseURL 核心仍然是调用到golang 的 service 中去
+     *
+     * 如果不想使用sdk中的请求配置可自行配置 {@link MonitoringConfigImpl.customRequests}
      *
      * @defaultValue http://localhost:8089/api/version
      *
@@ -69,6 +73,15 @@ export abstract class MonitoringConfigImpl {
 
     abstract setReportingEndpoint(value: string): this;
 
+
+    /**
+     *  自定义用户请求
+     */
+    abstract customRequests: CustomRequests | null;
+
+    abstract getCustomRequests(): CustomRequests | null;
+
+    abstract setCustomRequests(value: CustomRequests | null): this;
 
     /**
      * 报告数据的时间间隔(ms)。 可用
